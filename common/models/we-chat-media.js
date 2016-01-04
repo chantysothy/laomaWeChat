@@ -92,6 +92,16 @@ module.exports = function(WeChatMedia) {
 		}
 	)
 
-
+	WeChatMedia.getLatestToken = function (cb) {
+		weApi.getLatestToken(function(err, token){
+			cb(null, token);
+		})
+	}
+	WeChatMedia.remoteMethod(
+		'getLatestToken',
+		{
+			returns: {arg:'token', type:'string'}
+		}
+	)
 
 };
